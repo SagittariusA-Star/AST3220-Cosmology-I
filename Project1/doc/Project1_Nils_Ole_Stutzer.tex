@@ -1,0 +1,250 @@
+\documentclass{emulateapj}
+%\documentclass[12pt,preprint]{aastex}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{epsfig, floatflt}
+\usepackage{natbib, hyperref}
+\usepackage{url}
+
+
+\begin{document}
+	
+	\title{Ast3220: Project 1}
+	
+	\author{Candidate: 15108}
+	
+	%\email{nilsole2009@live.no}
+	
+	%\altaffiltext{1}{Institute of Theoretical Astrophysics, University of
+		%Oslo, P.O.\ Box 1029 Blindern, N-0315 Oslo, Norway}
+	\section*{Exercise 1.}
+	Consider a universe model with matter and vacuum energy, in addition to a non-zero spatial curvature. Specifically, we consider the case where the density parameters of the current (today) vacuum energy $\Omega_{\Lambda 0}\geq 0$ and the current matter density parameter $\Omega_{m 0}\geq 0$. Next consider the first Friedmann equation (FI) given as 
+	\begin{align}
+		\dot{a}^2 + kc^2 = \frac{8\pi G}{3}\rho a^2 + \frac{\Lambda}{3}a^2, 
+	\end{align}
+	where $a$ and $\dot{a}$ are the scale factor and its time derivative, $k$ is the curvature parameter (that can equal one or minus one for a non-zero curvature), $c$ is the light speed, $G$ is the gravitational constant, $\rho = \rho_m$ is the total mass-energy density of the matter content in this case and $\Lambda$ represents a cosmological constant (vacuum energy). Further we see that FI can be written as 
+	\begin{align}
+		H^2(t) \equiv \left(\frac{\dot{a}}{a}\right)^2 = \frac{8\pi G}{3}\rho_m - \frac{kc^2}{a^2} + \frac{\Lambda}{3}.
+	\end{align}
+	Then we divide by the Hubble parameter $H(t)$ at the current time, $H^2(t_0) \equiv H_0^2$, on both sides
+	\begin{align}
+		\left(\frac{H(t)}{H_0}\right)^2 = \frac{8\pi G}{3H_0^2}\rho_m - \frac{kc^2}{H_0^2 a_0^2}\left(\frac{a_0}{a}\right)^2 + \frac{\Lambda}{3H_0^2},
+	\end{align}
+	where we see that we get the critical density $\rho_{c0}\equiv\frac{3H_0^2}{8\pi G}$ and the curvature density parameter $\Omega_{k0} \equiv -\frac{kc^2}{a_0^2H_0^2}$. We then get
+	\begin{align}
+		\frac{H^2(t)}{H_0^2} = \frac{8\pi G}{3H_0^2}(\rho_m + \rho_\Lambda) + \Omega_{k0}\left(\frac{a_0}{a}\right)^2,
+	\end{align}
+	where we let the energy density of the cosmological constant $\rho_\Lambda = \frac{\Lambda}{8\pi G}$. We are now ready to make use of the density formula 
+	\begin{align}
+	\rho_i = \rho_{i0}\left(\frac{a_0}{a}\right)^{3(1+w_i)},
+	\end{align}
+	where $a_0$ is the scale factor today. For matter $w_m=0$ and for the cosmological constant $w_\Lambda = -1$. Thus we get that the matter's and cosmological constant's density are given as
+	\begin{align}
+		\rho_m &= \rho_{m0}\left(\frac{a_0}{a}\right)^3\\
+		\rho_\Lambda & = \rho_{\Lambda 0}.
+	\end{align}
+	This is now inserted into FI
+	\begin{align}
+		\frac{H^2(t)}{H_0^2} = \frac{\rho_{m0}}{\rho_{c0}}\left(\frac{a_0}{a}\right)^3 + \frac{\rho_{\Lambda 0}}{\rho_{c0}} + \Omega_{k0}\left(\frac{a_0}{a}\right)^2.
+	\end{align}
+	We now see that we get the density parameters for matter and the cosmological constant, $\Omega_{m 0}\equiv \frac{\rho_{m0}}{\rho_{c0}}$ and $\Omega_{\Lambda 0}\equiv \frac{\rho_{\Lambda 0}}{\rho_{c0}}$. Also we can make the use of the sum rule, which in this case is $\sum_{i} \Omega_{i0} = \Omega_{m 0} + \Omega_{\Lambda 0} + \Omega_{k0} = 1$. Thus $\Omega_{k0} = 1 - \Omega_{m 0} - \Omega_{\Lambda 0}$. We then get the wanted form of FI
+	\begin{align}
+		\frac{H^2(t)}{H_0^2} = \Omega_{m 0}\left(\frac{a_0}{a}\right)^3 + \Omega_{\Lambda 0} + (1 - \Omega_{m 0} - \Omega_{\Lambda 0})\left(\frac{a_0}{a}\right)^2.
+		\label{eq:FI}
+	\end{align}
+	
+	\section*{Exercise 2.}
+	We now want to consider a case where we have a matterless model, i.e. $\Omega_{m 0} = 0$, so that the entire energy density $\rho = \rho_{\Lambda}$. We now take a look at the second Friedmann equation (FII) for this case
+	\begin{align}
+		\ddot{a} &= -\frac{4\pi G}{3}\left(\rho_{\Lambda} + \frac{3P_\Lambda}{c^2}\right)a\\
+		&= -\frac{4\pi G}{3}\left(\rho_{\Lambda} -3\rho_\Lambda\right)a\\
+		&= \frac{8\pi G}{3}\rho_{\Lambda}a \geq 0,
+	\end{align}
+	where we made use of the equation of state for the cosmological constant $P_\Lambda = w_\Lambda \rho_{\Lambda} c^2 = -\rho_{\Lambda}c^2$. We see that because we only consider positive cosmological constants $\Lambda$, $\rho_{\Lambda}$ must be positive too. Also, it makes no sense to have a negative scale factor $a$, and thus the acceleration of the scale factor $\ddot{a}\geq 0$. This means that the curve of $a(t)$ as a function of cosmic time $t$ must always curve upwards. Furthermore, this implies that all extrema of $a(t)$ must be minima. To find if there is such a minimum for finite $t$ we solve FI (see eq. (\ref{eq:FI})) for $\dot{a} = 0$:
+	\begin{align}
+		\dot{a} = 0\quad\implies H^2(t) = 0\\
+		\implies \Omega_{\Lambda 0} + (1 - \Omega_{\Lambda 0})\left(\frac{a_0}{a_{min}}\right)^2 = 0\\
+		\implies a_{min} = a_0\sqrt{\frac{\Omega_{\Lambda 0} - 1}{\Omega_{\Lambda 0}}}.
+	\end{align}
+	So we see that this universe model does indeed have a finite non-zero minimum $a_{min}$ iff $\Omega_{\Lambda 0} > 1$.
+	
+	\section*{Exercise 3.}
+	Next we want to solve FI for the case where $\Omega_{m 0} = 0$ and $\Omega_{\Lambda 0}>1$. We start from eq. (\ref{eq:FI}), only here we let $\Omega_{m 0} = 0$:
+	\begin{align}
+		H^2(t) = \frac{1}{a^2}\left(\frac{da}{dt}\right)^2 = H_0^2\left[\Omega_{\Lambda 0} + (1-\Omega_{\Lambda 0})\left(\frac{a_0}{a}\right)^2\right]\\
+		\implies \frac{dt}{da} = \pm\frac{1}{H_0}\left[\Omega_{\Lambda 0}a^2 + (1-\Omega_{\Lambda 0})a_0^2\right]^{-1/2}.
+	\end{align}
+	Note that the $\pm$-sign opens for contracting and expanding solutions. We only keep the sign for the sake of generality, but we really only need the expanding (+) solution, since our current state of knowledge states that the universe is expanding.
+	Anyways, we now integrate for cosmic time $t_{min}$ to $t$, where $t_{min}<t$ is the time at which the scale factor $a$ was at its minimum $a_{min}$. The limits of the scale factor integral then obviously are from $a_{min}$ to $a$.
+	\begin{align*}
+		&\int_{t_{min}}^{t}dt' \\
+		&= \pm\int_{a_{min}}^{a}\frac{1}{H_0\sqrt{(\Omega_{\Lambda 0} - 1)a_0^2}}\left[\frac{\Omega_{\Lambda 0}}{\Omega_{\Lambda 0} - 1}\frac{a'^2}{a_0^2} - 1\right]^{-1/2}da'\\
+		&= \pm\int_{a_{min}}^{a}\frac{1}{H_0\sqrt{(\Omega_{\Lambda 0} - 1)a_0^2}}\left[\left(\frac{a}{a_{min}}\right)^2 - 1\right]^{-1/2}da',
+	\end{align*}
+	where we used the value for $a_{min}$ found in the previous exercise. We can now substitute $u = a/a_{min}$ and get
+	\begin{align*}
+		\int_{t_{min}}^{t}dt' &= \pm \int_{1}^{a/a{min}}\frac{a_{min}}{H_0\sqrt{(\Omega_{\Lambda 0}-1)a_0^2}}[u^2-1]^{-1/2}du\\
+		&= \pm\int_{1}^{a/a_{min}}\frac{1}{H_0\sqrt{\Omega_{\Lambda 0}}}[u^2 - 1]^{-1/2}du
+	\end{align*}
+	The integral on the r.h.s. has a quite simple solution
+	\begin{align*}
+		t-t_{min} &= \frac{1}{H_0\sqrt{\Omega_{\Lambda 0}}}[\cosh^{-1}u]_1^{a/a_{min}}\\
+		&=\cosh^{-1}(a/a_{min}).
+	\end{align*}
+	This then gives us that 
+	\begin{align*}
+		\frac{a}{a_{min}} = \cosh(H_0 \sqrt{\Omega_{\Lambda 0}}(t-t_{min})). 
+	\end{align*}
+	We can now choose to set $t_{min} = 0$, giving us the scale factor of this model
+	\begin{align*}
+		a(t) = a_{min}\cosh(H_0\sqrt{\Omega_{\Lambda 0}}t).
+	\end{align*}
+	To answer why $\Omega_{\Lambda 0} = 2$ and an observed redshift $z=0.5$ would falsify this model we take a look at the definition of the redshift
+	\begin{align}
+		\frac{a_0}{a} = 1 + z\implies z = \frac{a_0}{a} - 1.
+	\end{align}
+	We can find the greatest possible redshift $z_{max}$ by inserting the minimum of $a_{min}$:
+	\begin{align*}
+		z_{max} = \frac{a_0}{a_min} - 1 = \sqrt{\frac{\Omega_{\Lambda 0}}{\Omega_{\Lambda 0} - 1}} - 1 = \sqrt{2} - 1 \approx 0.414.
+	\end{align*}
+	In other word the maximum redshift should according to this model be about $z_{max}\approx0.414$. Meaning that an observed redshift of $z=0.5$ would not be possible if the universe would really follow this model.
+		 
+	 \section*{Exercise 4.}
+	 To solve the numerical exercises, we used Python. \\
+	 \textbf{4 i)}\\
+	 To avoid errors in the later to solve numerical problems we have to make certain that the r.h.s. of FI is always positive for any given parameters $\Omega_{m 0}$ and $\Omega_{\Lambda 0}$. This is simply done by a standard \texttt{if}-test in the \texttt{Initialize} method of the \text{AgeOfTheUniverse}-class (see \texttt{Task4.py}), where a \texttt{ValueError} is raised in case the \texttt{if}-test is triggered. The program will the print a message. The raised error is then later combined with a \texttt{try}-\texttt{exept}-block.\\
+	 \textbf{4ii)}\\
+	 To calculate the current age of the universe we first need to find an expression to implement numerically. To do this we take a look at FI on the form shown in Exercise 1. 
+	 \begin{align}
+	 	\frac{H}{H_0} = \sum_{i=1}^{3}\Omega_{i0}\left(\frac{a}{a_0}\right)^{-3(1+w_i)},
+	 \end{align}
+	 where the $\Omega_{i0}$s are the three different density parameters for matter, vacuum energy and spatial curvature (the sum is just a shorthand notation for the r.h.s. of eq. (\ref{eq:FI})). We now use the same technique shown in Exercise 3. to solve for cosmic time t:
+	 \begin{align}
+	 	\frac{da}{dt} &= a H_0\sqrt{\sum_{i=1}^{3}\Omega_{i0}\left(\frac{a}{a_0}\right)^{-3(1+w_i)}}\\
+	 	\implies t&=  \int_{0}^{t}dt' = \int_{0}^{a}\left[a'H_0\sqrt{\sum_{i=1}^{3}\Omega_{i0}\left(\frac{a'}{a_0}\right)^{-3(1+w_i)}}\right]^{-1}da'
+	 \end{align}
+	 We now substitute $x = a'/a_0\implies da' = a_0 dx$, giving
+	 \begin{align}
+		 t &= \int_{0}^{a/a_0}\frac{dx}{xH_0\sqrt{\sum_{i=1}^{3}\Omega_{i0}\left(x\right)^{-3(1+w_i)}}}\\
+	 	& = \int_{0}^{a/a_0}\frac{dx}{xH(x)}.
+	 \end{align}
+	 Now this integral can be used to calculate the current age of the universe $t_0$ by simply letting the upper limit of the integral equal 1. This was implemented numerically in the method \texttt{CurrentAge} of the \texttt{AgeOfTheUniverse}-class, using NumPy's trapezoidal integrator (\texttt{numpy.trapz()}). The input of the integrator is then simply the integrand function $1/(xH(x))$ evaluated with an array of $x$-values from 0 to 1. To calculate the scale factor $a/a_0$ as a function of cosmic time $t/t_0$ the same integral was implemented in a separate method (\texttt{TimeElapsed}), only that the upper limit was set by an input value. Also, the integration method was changed to a cumulative trapezoidal method, so as to obtain an array that could be used for plotting. The \texttt{TimeElapsed} method also returned the redshift $z$ by simply using the relation 
+	 \begin{align}
+	 	z = \frac{1}{x} - 1,
+	 \end{align}
+	 so we could plot the time elapsed as a function of the redshift.
+	 
+	 Next, we wanted to plot the luminosity distance $d_L$ as a function of redshift. To do this we fist found an expression that we could implement numerically by finding an alternative expression for $d_L = a_0(1+z)r$ that only depends on measurable quantities. We start by taking a look at the radial coordinate 
+	 \begin{align}
+	 	r = \mathcal{S}_k\left[\int_{t_e}^{t_0}\frac{cdt}{a(t)}\right],
+	 \end{align}
+	 where $\mathcal{S}_1(x) = \sin(x)$, $\mathcal{S}_{-1} = \sinh(x)$ and $\mathcal{S}_0(x) = x$ for $k = -1,0,1$. Let's now take a look at the integral
+	 \begin{align}
+	 	I = \int_{t_e}^{t_0}\frac{cdt}{a(t)}.
+	 \end{align} 
+	 We can substitute using $\dot{a} \equiv \frac{da}{dt}\implies dt = \frac{da}{\dot{a}}$ and $\dot{a} = aH$ to find that $dt = \frac{da}{aH}$ giving us
+	 \begin{align*}
+	 	I &= \int_{a(t_e)}^{a(t_0)}\frac{cda}{a^2H}\\
+	 	&= -\int_{z}^{0}\frac{ca_0dz'}{a^2(1+z')^2H(z)}\\
+	 	& = \frac{c}{H_0a_0}\int_{0}^{z}\frac{dz'}{H(z)/H_0}.
+	 \end{align*}
+	 In the case of a flat space, i.e. $k=0$ we see that the luminosity distance
+	 \begin{align}
+	 	d_L = \frac{c(1+z)}{H_0}\int_{0}^{z}\frac{dz'}{H(z')/H_0},
+	 \end{align}
+	 which only depends on observables. Now we need to take a look at the case where $|k|=1$, that is a curved space. We can make use of the curvature density parameter $\Omega_{k0}\equiv -\frac{kc^2}{a_0^2H_0^2}$ and solve for the current scale factor 
+	 \begin{align}
+	 	a_0 = 
+	 	\begin{cases}
+	 	\frac{c}{H_0\sqrt{-\Omega_{k0}}}&\text{, for }k=+1\\
+	 	\frac{c}{H_0\sqrt{\Omega_{k0}}}&\text{, for }k-1.
+	 	\end{cases}
+	 \end{align}
+	 Meaning that generally for a curved space we can write that $a_0 = \frac{c}{H_0\sqrt{|\Omega_{k0}|}}$. Thus the luminosity distance as a function of only observables can be found by solving 
+	 \begin{align}
+	 	d_L = \frac{c(1+z)}{H_0\sqrt{|\Omega_{k0}|}}\mathcal{S}_k\left[\sqrt{|\Omega_{k0}|}\int_{0}^{z}\frac{dz'}{H(z')/H_0}\right],
+	 \end{align}
+	 where $\Omega_{k0}$ is found by imposing the sum rule and $H(z')/H_0$ is simply the square root of FI.
+	 
+	 The luminosity distance $d_L$ is found numerically in the \texttt{LumDist}-method. The integrals are again solved using the trapezoidal method. Because a given choice of parameters $\Omega_{m 0}$ and $\Omega_{\Lambda 0}$ can result in three different curvature parameters $k$, we need to find $d_L$ separately in each case. This is simply done by some \texttt{if}-tests. 
+	 
+	 We are now ready to take a look at the programs output using the Einstein-de Sitter universe as our test subject. The calculated current age of the universe was found to be $t_0= 9.3$ Gyr, which is in accordance to the known age of a de Sitter universe (for the dimensionless Hubble constant h=0.7). In Fig. \ref{fig:EdS} we have plotted the numerical as well as the analytical solutions to the scale factor $a(t)$ as a function of cosmic time, the elapsed time since the Big Bang $t(z)$ and the luminosity distance $d_L(z)$, the latter two being functions of redshift. We can clearly see that numerical solution of the three different quantities overlap their analytical counterpart nicely. Furthermore, we see that the scale factor reaches a size of $a=a_0$ when the time is at its current value $t_0$. If this wouldn't happen, something would be seriously wrong, as the scale factor has to equal $a_0$ at $t=t_0$ from the definition of the scale factor at the current time.
+	 
+	 If we take a look at the time elapsed $t$ since the Big Bang as a function of redshift $z$, we see that $t$ decreases as $z$ increases. This is to be expected because the light waves sent out from far away at an early time after the Big Bang is stretched more due to the longer exposure to the universe's expanse. 
+	 
+	 Also the plot showing the luminosity distance seems to make sense. We clearly see that the luminosity distance tends to increase as the redshift increases. That is, as mentioned before, because light observed at a higher redshift was sent out far away and a long time ago before it reached out current position in space-time.
+	 
+	 \begin{figure*}
+	 	\includegraphics*[width=\textwidth]{EdSPlot.jpg}
+	 	\caption{The figure shows the program output for Exercise 4.ii) using an Einstein-de Sitter solution as a test subject. The leftmost plot shows the scale factor $a/a_0$ as a function of the cosmic time $t/t_0$. In the middle the time elapsed $t/t_0$ since the Big Bang as a function of redshift $z$. The rightmost plot shows the luminosity distance $d_L$ as a function of redshift $z$.}
+	 	\label{fig:EdS}
+	 \end{figure*}
+	  
+ 	\section*{Exercise 5.}
+ 	\textbf{5. i)}\\
+ 	In order to find the values for $\Omega_{m 0}$ and $\Omega_{\Lambda 0}$ that produce the most realistic model of the universe, we implement the formula 
+ 	\begin{align}
+ 		\chi^2(\Omega_{m 0}, \Omega_{\Lambda 0}) = \sum_{i = 1}^{N} \frac{(d_L(z_i;\Omega_{m 0}, \Omega_{\Lambda 0}) - d^i_L)^2}{\sigma_i^2},
+ 	\end{align}
+ 	where $z_i$ is the redshift, $d^i_L$
+ 	the corresponding luminosity distance and $\sigma_i$ is the error in the measurements, while $d_L(z_i;\Omega_{m 0}, \Omega_{\Lambda 0})$ is the numerical value found using the previously made \texttt{LumDist}-method. As described in the exercise text $\chi^2$ is the exponent of the likelihood. Because we assume the prior and evidence of Bayes’ theorem to be constant, the Bayesian algorithm will basically just be a maximum likelihood estimate. Furthermore, since the normalisation factor of the gaussian distribution is the same for all tested models, we can basically neglect it and maximize the likelihood by minimizing  $\chi^2$ in the likelihoods exponent.
+ 	
+ 	Since we only want to iterate over two different parameters, we chose to calculate $\chi^2$ for all combinations of the two density parameters using a double \texttt{for}-loop. The values calculated in each grid point are stored in a 2D array for later plotting. The density parameter combinations resulting in a negative r.h.s of FI and other value errors, are given an infinite value of $\chi^2$ so as to neglect these models in the statistical analysis. This is done in a \text{try-except}-block where the raises errors are detected. Then, to minimize $\chi^2$ we simply take the minimum of the array with the stored $\chi^2$-grid-values and find the grid coordinates for that minimum, corresponding to the parameters $\Omega_{m 0}$ and $\Omega_{\Lambda 0}$. We found that $\chi^2$ was at its minimum at the grid point $\Omega_{m 0} = 0.24$ and $\Omega_{\Lambda 0} = 0.63$. Meaning that the universe model produced using these matter and vacuum energy density parameters is the best-fit curve to the luminosity distance, as the mode of the likelihood (minimum of $\chi^2$) forms the most probable solution. The best-fit model as well as the data (with uncertainties) can be seen in the plot in Fig. \ref{fig:bestfit}.\\
+ 	
+ 	\texttt{5. ii)}\\
+ 	In Fig. \ref{fig:Contour} one can see a colour plot produced by the gridding algorithm over $\chi^2$. We cannot be certain that the most probable value for $\Omega_{m 0}$ and $\Omega_{\Lambda 0}$ are the true values. However, it can be shown that there is a 95\% probability that the true value of $\Omega_{m 0}$ and $\Omega_{\Lambda 0}$ can be found in the region given by 
+ 	\begin{align}
+ 		\chi^2(\Omega_{m 0}, \Omega_{\Lambda 0}) - \chi^2_\text{min} < 6.17,
+ 	\end{align} 
+ 	where $\chi^2_\text{min}$ is the minimum value of $\chi^2$. This area is easily found by using some array slicing techniques (using \texttt{numpy.where()}). In Fig. \ref{fig:Contour} this area is marked with a blue line. We can clearly see that is looks like an ellipse with its centre located at the minimum of the $\chi^2$. \\
+ 	
+ 	\begin{figure}
+ 		\includegraphics[width=\linewidth]{ContourChi.jpg}
+ 		\caption{The contour plot shows $\chi^2(\Omega_{m 0}, \Omega_{\Lambda 0})$ as a function of the $\Omega_{m 0},\Omega_{\Lambda 0}$-grid. The minimum of $\chi^2$ is indicated by the red cross and lies at $\Omega_{m 0} \approx 0.24$ and $\Omega_{\Lambda 0} \approx 0.63$. The 95\% confidence interval is indicated by the area within the blue ellipse.}
+ 		\label{fig:Contour}
+ 	\end{figure}
+ 	\textbf{5. iii)}
+ 	
+ 	
+ 	\begin{figure}
+ 		\includegraphics[width=\linewidth]{LumDistBest.jpg}
+ 		\caption{The graph shows the luminosity distance data with error bars ($1\sigma$ confidence), the best-fit model found by the minimum of $\chi^2$, the Einstein-de Sitter model, the de Sitter model as well as some models with parameters $\Omega_{m 0}$ and $\Omega_{\Lambda 0}$ laying within the 95\% confidence interval.}
+ 		\label{fig:bestfit}
+ 	\end{figure}
+ 	
+ 	Now that we've found the 95\% confidence interval we can use some of the $\Omega_{m 0}$s and $\Omega_{\Lambda 0}$s within it to generate luminosity distances as a function of the redshift $z$ for each model respectively. These can be compared to the data with associated errors, the best-fit, as well as the Einstein-de Sitter and de Sitter solutions. The plot showing these graphs can be seen in Fig. \ref{fig:bestfit}. One can see that the de Sitter solution tends to overshoot the data by quite a lot, while the Einstein-de Sitter solution undershoots the measured data. Both are outside the errors of the measurements, justifying the conclusion that these two models are not so good for describing the real universe. Meanwhile, the solutions from within the 95\% confidence interval generally seem to fit the data quite well. Nevertheless, there are a few of these models that lie outside the uncertainties ($1\sigma$ confidence interval of each measurement) of the measurements, even though they seem to follow the data's tendencies quite well. The best-fit solution using the parameters $\Omega_{m 0} = 0.24$ and $\Omega_{\Lambda 0} = 0.63$, as well as the tested model with the parameters closest to the best-fit's parameter seem to follow the data curve and they are within the error of the measurements. So unless there is a systematic error that is undetected in the measurements we can conclude that the best-fit model, or some model close to it are quite good ones. It seems like models with more vacuum energy than mass fit the data better, although further analysis is needed to say that for certain.
+ 	
+ 	When it comes to the question what range of the redshift is the most important to draw a conclusion on whether the universes expansion is accelerating, we definitely see in Fig. \ref{fig:bestfit} that the higher redshifts are the most important in that regard. In the $0\leq z\leq 0.2$ range all solutions are basically given by the same curve. This in no wonder as most of these solutions can be approximated quite well with a Taylor expansion of first order for low $z$. Thus, all graphs look linear for low $z$. But for higher $z$, that is the $z\geq 0.4$ range, it is really easy to see which solutions have a positive or negative (or zero) acceleration by looking at their curvature. For higher $z$ one needs to include higher order terms in order for a Taylor expansion to be a good approximation to a given model, thus resulting in different curvatures of $d_L$. For instance, we see that the de Sitter solution as expected curves upwards, since it is expanding exponentially. The best-fit model as well as the data curve also seem to curve upwards slightly, i.e. it has a positive acceleration. It very much expected that the higher redshifts give the best indication of whether a model is an expanding one. That is because a higher redshift corresponds to a light wave sent out far away, thus being more affected by the universe expanding. Two observers will thus observe a greater relative velocity, due to the expansion of the universe, the further away from each other they are. This then results in a greater redshift. Thus we can conclude that the higher redshifts are more sensitive to an expanding universe.
+ 	
+	\begin{figure}
+		\includegraphics[width=\linewidth]{HistPlot.jpg}
+		\caption{The plot shows three different histograms, each representing a different dimensionless Hubble parameter $h$. The Histograms show the number of models, from within the 95\% confidence interval of $\chi^2$, resulting in a model with a certain age $t_0$.}
+		\label{fig:Hist}
+	\end{figure}
+
+	\section*{Exercise 6.}
+	When looping over a grid of density parameters as described earlier, we also calculate the age of the universe for the model in each grid point. These age values are then also saved in an array. By using some array slicing techniques similar to when wanting to find the 95\% confidence region, we can easily make a histogram of the age values corresponding to the models in each grid point within this region. The produced histogram can be seen in Fig. \ref{fig:Hist}. It shows the number of models resulting in a certain age of the universe. We see that for $h=0.7$ the age distribution looks like a $\chi^2$-distribution. The age of the best-fit universe model from \textbf{5.iii)} is found to be $t_0\approx13.71$ Gyr. This is in between the average age $\overline{t_0} \approx 13.86$ Gyr and the Root-Mean-Square $t_0^\text{rms} = 13.63$ Gyr.
+	
+	However, there are several sources of uncertainty to the age of the universe, of which especially one has to be addressed. The greatest uncertainty in the age of the universe is in this case the fact that there is a great uncertainty in the value of the dimensionless Hubble parameter $h$. There have been several experiments measuring $h$, of which the two important studies are done by the \cite{planck:2016} analysing the Cosmic Microwave Background and \cite{Riess:2009} using data from the Hubble Space telescope and a differential distance ladder (with Supernovae type Ia and cepheids). The former measuring a Hubble constant $H_0 = 67.8 \pm 0.9$ km s$^{-1}$ Mpc$^{-1}$ ($h = 0.678\pm0.009$) while the latter found that $H_0 = 74.2 \pm 3.6$ km s$^{-1}$ Mpc$^{-1}$ ($h = 0.742\pm0.036$). Since these two results don't really agree it is difficult to find a good estiamete to $h$, and thus to find out which age distribution is the correct one. In the histograms seen in Fig. \ref{fig:Hist} there are two additional histograms to the one where $h=0.7$. We can clearly see that the distributions using $h=0.68$ and $h=0.74$ don't have any significant overlap, meaning the two models disagree. We can therefore conclude that in order to obtain a better age distribution one has to better restrict the estimates for $h$.
+	
+	
+	%\date{Received - / Accepted -}
+	
+	%\begin{figure}[t]
+	%
+	%\mbox{\epsfig{figure=filename.eps,width=\linewidth,clip=}}
+	%
+	%\caption{Description of figure -- explain all elements, but do not
+	%draw conclusions here.}
+	%\label{fig:figure_label}
+	%\end{figure}
+	
+	\begin{acknowledgements}
+		I thank my fellow student Bernhard Nornes Lotsberg for help and collaboration in this project.
+	\end{acknowledgements}
+
+	\bibliography{ref}
+	\bibliographystyle{aasjournal}
+\end{document}

@@ -1,0 +1,303 @@
+\documentclass{emulateapj}
+%\documentclass[12pt,preprint]{aastex}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{epsfig, floatflt}
+\usepackage{natbib, hyperref}
+\usepackage{url}
+\usepackage{physics}
+
+\begin{document}
+	
+	\title{Ast3220: Project 2}
+	
+	\author{Candidate: 15108}
+	
+	%\email{nilsole2009@live.no}
+	
+	%\altaffiltext{1}{Institute of Theoretical Astrophysics, University of
+		%Oslo, P.O.\ Box 1029 Blindern, N-0315 Oslo, Norway}
+	\section*{Exercise 1.}
+	If we demand conservation of entropy we can make use of the fact that 
+	\begin{align}
+		a^3s(T) = \text{constant},
+	\end{align}
+	for the scale factor $a$ and the entropy density $s(T)$ (specific entropy) as a function of the photon temperature $T$. If we differentiate this equation we obtain 
+	\begin{align}
+		&\dv{t}\left[a^3s(T)\right] = 0\\
+		&\implies 3a^2\dot{a}s(T) + a^3\dv{s}{T}\dv{T}{t} = 0\\
+		&\implies \frac{\dot{a}}{a} + \frac{s'(T)\dot{T}}{3s(T)} = 0,
+	\end{align}
+	where $s'(T) = \dv{s}{T}$ and $\dot{a}$ and $\dot{T}$ are the time derivatives (with $t$ as cosmic time) of the scale factor and the temperature.
+	This we can insert into the first Friedmann equation (FI):
+	\begin{align}
+		\left(\frac{\dot{a}}{a}\right)^2 &= \frac{8\pi G}{3}\rho\\
+		\implies \frac{\dot{a}}{a} &= \sqrt{\frac{8\pi G\rho}{3}} = -\frac{s'(T)\dot{T}}{3s(T)}.
+	\end{align}
+	From the last equality we get that 
+	\begin{align}
+		dt = -\sqrt{\frac{3}{8\pi G\rho}}\frac{s'(T)dT}{3s(T)} = -\frac{s'(T)dT}{s(T)\sqrt{24\pi G\rho(T)}},
+	\end{align}
+	for a temperature dependent density $\rho(T)$. We can now integrate on both sides, for $t\in[0, t]$ and for $T\in[T_0, T]$, where $T_0 = T(0)$ and $T = T(t)$. This gives 
+	\begin{align}
+		t = \int_{0}^{t}dt &= -\int_{T_0}^{T}\frac{s'(T)dT}{s(T)\sqrt{24\pi G\rho(T)}}\nonumber \\
+		&=\int_{T}^{T_0}\frac{s'(T)dT}{s(T)\sqrt{24\pi G\rho(T)}},
+	\end{align}
+	where we absorbed the negative sign into changing the order of the integration limits in the temperature integral. This is precisely what we wanted to show.
+	
+	\section*{Exersice 2.}
+	The entropy density of a system is given as 
+	\begin{align}
+		s(T) = \frac{\rho c^2 + P}{T},
+	\end{align}
+	for an energy density $\rho c^2$ and a pressure $P$. If we consider a system of photons, electrons and positrons the total entropy density will have two contributing parts, one for fermions (we let $e$ denote the contribution of $e^-$ and $e^+$) and one for bosons (photons, $\gamma$). Thus the total entropy density is given as 
+	\begin{align}
+		s(T) &=  \frac{1}{T}(\rho_ec^2 + P_e) + \frac{1}{T}(\rho_\gamma c^2 + P_\gamma),
+	\end{align}
+	where the first part represents the fermion ($e^-$ and $e^+$) contribution and the second one represents the boson ($\gamma$) contribution. We now insert the definitions of energy density and pressure and obtain
+	\begin{align*}
+		Ts(T) & = \left(\int_{0}^{\infty}E_e(p)n_e(p,T)dp + \int_{0}^{\infty}\frac{(pc)^2}{3E_e(p)}n_e(p,T)dp\right)\\
+		&+ \left(\int_{0}^{\infty}E_\gamma(p)n_\gamma(p,T)dp + \int_{0}^{\infty}\frac{(pc)^2}{3E_\gamma(p)}n_\gamma(p,T)dp\right)\\
+		& = \int_{0}^{\infty}n_e(p,T)\left(E_e + \frac{(pc)^2}{3E_e}\right)dp \\
+		&+ \int_{0}^{\infty}n_\gamma(p,T)\left(E_\gamma + \frac{(pc)^2}{3E_\gamma}\right)dp,
+	\end{align*}
+	where the $n$s denote the number densities of the particles, $p$ is the momentum and the $E$s are their energies. The number density of fermions is given by the Fermi-Dirac distribution 
+	\begin{align}
+		n(p,T) = \frac{4\pi gp^2}{(2\pi\hbar)^3}\frac{1}{\exp(E/k_BT)+1},
+	\end{align}
+	while the bosons are given by the Bose-Einstein distribution, which only differs form the Fermi-Dirac distribution in that the sign in front of the "1" term in the denominator changes. As usual $k_B$ and $\hbar$ denote the Boltzmann and Planck constants respectively, and $g$ denotes the internal degrees of freedom. 
+	Now, we know ultra-relativistic particles like photons do not possess any rest mass, giving them an energy of $E_\gamma = pc$. However, the energy of the electrons and positrons is given by the energy-momentum relation $E_e = \sqrt{(pc)^2 + (m_ec^2)^2}$, due to their rest mass contribution. Thus we obtain
+	\begin{align}
+		Ts(T) &= \int_{0}^{\infty}\frac{4\pi g_ep^2}{(2\pi\hbar)^3}\frac{1}{\exp(E_e/k_BT)+1}\left(E_e + \frac{(pc)^2}{3E_e}\right)dp\\
+		&+ \frac{4}{3}\int_{0}^{\infty}\frac{4\pi g_\gamma p^2}{(2\pi\hbar)^3}\frac{1}{\exp(pc/k_BT)-1}dp.
+	\end{align}
+	We now consider the photon integral
+	\begin{align}
+		I = \frac{4}{3}\frac{4\pi g_\gamma}{(2\pi \hbar)^3c^2}\int_{0}^{\infty}\frac{(pc)^3}{\exp(pc/k_BT) - 1}dp.
+	\end{align}
+	Substituting to $x = pc/k_BT$, we get that $dp = dxk_BT/c$ which gives
+	\begin{align*}
+		I &= \frac{4}{3}\frac{4\pi g}{(2\pi \hbar)^3c^2}\frac{(k_BT)^4}{c}\int_{0}^{\infty}\frac{x^3}{\exp(x) - 1}dx\\
+		&= \frac{2\pi^2}{45}g_\gamma k_B\left(\frac{k_BT}{\hbar c}\right)^3 = \frac{4\pi^2}{45} k_B\left(\frac{k_B}{\hbar c}\right)^3T^2.
+	\end{align*}
+	Here we used the formula 44) from page 155 in Rottmann. The degrees of freedom of the photons are $g_\gamma = 2$, because of the two independent polarizations. The degree of freedom for the fermions is $g_e = 2\cdot2 = 4$, since there are two particles, $e^-$ and $e^+$, in addition to two spin states per particle (spin-$\frac{1}{2}$ particles with spin up and down). Inserting back the integral solution we get that
+	\begin{align}
+		s(T) &= \frac{4\pi^2}{45} k_B\left(\frac{k_BT}{\hbar c}\right)^3\\
+		&+ \frac{1}{T}\int_{0}^{\infty}\frac{16\pi p^2}{(2\pi\hbar)^3}\frac{E_e(p) + \frac{(pc)^2}{3E_e(p)}}{\exp(E_e/k_BT) + 1}dp\\
+		& = \frac{4\pi^2}{45}k_B\left(\frac{k_BT}{\hbar c}\right)^3\Big[1 + \frac{45}{4\pi^2k_B}\left(\frac{\hbar c}{k_BT}\right)^3\frac{1}{T}\\
+		&\cdot\int_{0}^{\infty}\frac{16\pi p^2}{(2\pi\hbar)^3}\frac{\left(\sqrt{p^2c^2 + m_e^2c^4}\right) + \frac{(pc)^2}{3\sqrt{p^2c^2 + m_e^2c^4}}}{\exp(\sqrt{p^2c^2 + m_e^2c^4}/k_BT)+1} dp\Big]\nonumber\\
+		&= \frac{4\pi^2}{45}k_B\left(\frac{k_BT}{\hbar c}\right)^3\Big[1 +\frac{45}{2\pi^4}\\
+		&\cdot\int_{0}^{\infty} \frac{y^2\left(\sqrt{y^2 + x^2}+\frac{y^2}{3\sqrt{y^2 + x^2}}\right)}{\exp(\sqrt{y^2+x^2}) + 1}dy\Big]\\
+		&=\frac{4\pi^2}{45}k_B\left(\frac{k_BT}{\hbar c}\right)^3\mathcal{S}(x),
+	\end{align}
+	where we changed integration variable from $p$ to $y = pc/k_BT$, and where we let $x=m_ec^2/k_BT$ and 
+	\begin{align}
+		\mathcal{S}(x) = 1 +\frac{45}{2\pi^4}\int_{0}^{\infty} \frac{y^2\left(\sqrt{y^2 + x^2}+\frac{y^2}{3\sqrt{y^2 + x^2}}\right)}{\exp(\sqrt{y^2+x^2}) + 1}dy\nonumber
+	\end{align} 
+	
+	If we compare our result to the known formula for the entropy density given by 
+	\begin{align}
+		s(T) = \frac{2\pi^2}{45}k_Bg_{*s}\left(\frac{k_BT}{\hbar c}\right)^3,
+	\end{align}
+	we see that $2\mathcal{S}(x)$ corresponds to the effective relativistic degrees of freedoms $g_{*s}$ of the system. Meaning that $\mathcal{S}$ essentially measures the degrees of freedom of the system (something which may become useful later on).
+	
+	\section*{Exercise 3.}
+	If the entropy is conserved then we have that 
+	\begin{align}
+		a^3s(T) = \text{constant}.
+	\end{align}
+	From this we get that 
+	\begin{align}
+		a\propto\frac{1}{s^{1/3}(T)}.
+	\end{align}
+	Inserting the newly derived expression for the entropy density for photons, electrons and positrons we get
+	\begin{align}
+		a \propto \frac{1}{s^{1/3}(T)} \propto \frac{1}{(T^3\mathcal{S}(x))^{1/3}} = \frac{1}{T\mathcal{S}^{1/3}(x)}\quad\square.
+	\end{align}
+	Using the relation $T_\nu \propto a^{-1}$, for how the neutrino temperature $T_\nu$ and the scale factor $a$ are related, in addition to the above proportionality we find that 
+	\begin{align}
+		T_\nu \propto a^{-1} \propto T\mathcal{S}^{1/3}(x).
+	\end{align}
+	To make an equality out of this proportionality we simply define a constant of proportionality $A$ so that 
+	\begin{align}
+		T_\nu = AT\mathcal{S}(x)\quad\square.
+	\end{align}
+	
+	\section*{Exercise 4.}
+	We consider the universe at an early stage where the temperature $T\to\infty$. Next consider the relation
+	\begin{align}
+		T_\nu = AT\mathcal{S}(x),
+	\end{align}
+	between the neutrino temperature $T_\nu$ and the photon temperature $T$. If we let $T\to\infty$ then $x\to 0$, since $x\propto T^{-1}$. However the integration variable $y=pc/k_BT$ inside the integral in $\mathcal{S}(x)$ cannot we set to zero even though $y\propto T^{-1}$. That is due to the momentum being $p\in[0,\infty)$. We therefore take a look at 
+	\begin{align}
+		\lim_{T\to\infty}\mathcal{S}(x) &= \mathcal{S}(0) \\
+		&=\frac{45}{2\pi^4}\int_{0}^{\infty}\frac{y^2(y + \frac{y}{3})}{e^y + 1}dy\\
+		&=1 + \frac{45}{2\pi^4}\frac{4}{3}\int_{0}^{\infty}\frac{y^3}{e^y + 1}dy \\
+		&= 1 + \frac{90}{\pi^4}\frac{7\pi^4}{120} = \frac{11}{4}.
+	\end{align}
+	Thus we get that in the limit $T\to\infty$ the relation between the neutrino and photon temperature can be written as 
+	\begin{align}
+		T_\nu = AT\left(\frac{11}{4}\right)^{1/3}.
+	\end{align}
+	But we know that at an early stage in the universe's life, electrons, positrons and photons where in equilibrium with the neutrinos. Therefore, we can require $T_\nu = T$ in the limit $T\to\infty$. Thus we can find that the constant 
+	\begin{align}
+		A = \left(\frac{4}{11}\right)^{1/3}\frac{T_\nu}{T} = \left(\frac{4}{11}\right)^{1/3}.
+	\end{align}
+	Therefore the relation between the neutrino temperature and the photon temperature can be written as
+	\begin{align}
+		T_\nu = \left(\frac{4}{11}\right)^{1/3}T\mathcal{S}^{1/3}(x)\quad\square.
+	\end{align}
+	
+	\section*{Exercise 5.}
+	Since we have both electrons, positrons, photons and neutrinos in our universe, the total energy density will have four contributions
+	\begin{align}
+		\rho c^2 = \rho_\gamma c^2 + \rho_\nu c^2 + \rho_e c^2,
+	\end{align}
+	one for each particle type. We first consider the energy density of the photons:
+	\begin{align}
+		\rho_\gamma c^2(T) &= \int_{0}^{\infty}E_\gamma(p)n(p,T)_\gamma dp\\
+		&=\int_{0}^{\infty}\frac{4\pi g_\gamma p^2}{(2\pi\hbar)^3}\frac{pc}{\exp(pc/k_BT) - 1}dp.
+	\end{align}
+	We then substitute to $x = pc/k_BT$ and find
+	\begin{align}
+		&\rho_\gamma c^2\\
+		&=\frac{4\pi g_\gamma}{(2\pi\hbar)^3}\frac{(k_BT)^4}{c^3}\int_{0}^{\infty}\frac{x^3}{e^x - 1}dx = \frac{\pi^2}{15}\frac{(k_BT)^4}{(\hbar c)^3},
+	\end{align}
+	where we used the fact that $g_\gamma = 2$ due to the two possible polarizations. Next we consider the contribution of the neutrinos to the total energy density:
+	\begin{align}
+		\rho_\nu c^2(T_\nu) &= \int_{0}^{\infty}E_\nu(p) n_\nu(p,T)dp.
+	\end{align}
+	Since neutrinos are ultra-relativistic fermions their energy will be given by $E_\nu = pc$ and their number density is given by the Fermi-Dirac distribution. Thus 
+	 \begin{align}
+	 	&\rho_\nu c^2(T_\nu)\\
+	 	&=\int_{0}^{\infty}\frac{4\pi g_\nu p^2}{(2\pi \hbar)^3}\frac{pc}{\exp(pc/k_BT_\nu)}dp \\
+	 	&= \frac{4\pi g_\nu}{(2\pi\hbar)^3}\frac{(k_BT_\nu)}{c^3}\int_{0}^{\infty}\frac{x^3}{e^x + 1}dx \\
+	 	&= \frac{4\pi g_\nu}{(2\pi\hbar)^3}\frac{(k_BT_\nu)}{c^3} \frac{7\pi^4}{120},
+	 \end{align}
+	 where we used the substitution $x = pc/k_BT_\nu$. Since there are three generations of neutrinos, each with their corresponding anti-particle we get a total of $g_\nu = 3\cdot2 = 6$ internal degrees of freedom (since neutrinos are ultra-relativistic their spin states do not contribute to $g_\nu$). Thus the neutrino energy density is given as
+	 \begin{align}
+	 	\rho_\nu c^2 (T_\nu) = \frac{7}{8}\frac{\pi^2}{30}\cdot 6\cdot\frac{(k_BT_nu)^4}{(\hbar c)^3}.
+	 \end{align}
+	 Last we need to take a look at the energy density contribution of the electrons and positrons:
+	 \begin{align}
+	 	\rho_e c^2(T) &= \int_{0}^{\infty}E_e(p)n_e(p,T)dp\\
+	 	& = \int_{0}^{\infty}\frac{4\pi g_e p^2}{(2\pi\hbar)^3}\frac{\sqrt{p^2c^2 + m_e^2c^4}}{\exp(\sqrt{p^2c^2 + m_e^2c^4}/k_BT) + 1}dp.
+	 \end{align}
+	 Due to the electrons and positrons being spin-$\frac{1}{2}$ fermions, they each have two spin degrees of freedom, making $g_e = 2\cdot2 = 4$. Thus the energy density of the electrons and positrons
+	 \begin{align}
+	 	\rho_e c^2(T) = \int_{0}^{\infty}\frac{16\pi p^2}{(2\pi\hbar)^3}\frac{\sqrt{p^2c^2 + m_e^2c^4}}{\exp(\sqrt{p^2c^2 + m_e^2c^4}/k_BT) + 1}dp.
+	 \end{align}
+	 We can therefore write the total energy density as 
+	 \begin{align}
+	 	\rho c^2 &= \frac{\pi^2}{15}\frac{(k_BT)^4}{(\hbar c)^3} + \frac{7}{8}\frac{\pi^2}{30}\cdot 6\cdot\frac{(k_BT_nu)^4}{(\hbar c)^3}\\
+	 	&+\int_{0}^{\infty}\frac{16\pi p^2}{(2\pi\hbar)^3}\frac{\sqrt{p^2c^2 + m_e^2c^4}}{\exp(\sqrt{p^2c^2 + m_e^2c^4}/k_BT) + 1}dp\\
+	 	&= \frac{\pi^2}{15}\frac{(k_BT)^4}{(\hbar c)^3}\Bigg[1 + \frac{7}{8}\frac{\pi^2}{30}\cdot6\cdot\frac{(k_BT_\nu)^4}{(k_BT)^4}\\
+	 	&+ \frac{15}{\pi^2}\frac{(\hbar c)^3}{(k_BT)^4}\int_{0}^{\infty}\frac{16\pi p^2}{(2\pi\hbar)^3}\frac{\sqrt{p^2c^2 + m_e^2c^4}}{\exp(\sqrt{p^2c^2 + m_e^2c^4}/k_BT) + 1}dp\Bigg]\\
+	 	&= \frac{\pi^2}{15}\frac{(k_BT)^4}{(\hbar c)^3}\Bigg[1 + \frac{21}{8}\left(\frac{4}{11}\right)^{4/3}\mathcal{S}^{4/3}(x)\\
+	 	&+ \frac{30}{\pi^4}\frac{c}{k_BT}\int_{0}^{\infty}\frac{\left(\frac{pc}{k_BT}\right)^2\sqrt{\left(\frac{pc}{k_bT}\right)^2 + \left(\frac{m_ec^2}{k_bT}\right)^2}}{\exp(\sqrt{\left(\frac{pc}{k_bT}\right)^2 + \left(\frac{m_ec^2}{k_bT}\right)^2}) + 1}dp\Bigg]\\
+	 	& = \frac{\pi^2}{15}\frac{(k_BT)^4}{(\hbar c)^3}\Bigg[1 + \frac{21}{8}\left(\frac{4}{11}\right)^{4/3}\mathcal{S}^{4/3}(x)\\
+	 	&+ \frac{30}{\pi^4}\int_{0}^{\infty}\frac{y^2\sqrt{y^2 + x^2}}{\exp(\sqrt{y^2 + x^2}) + 1}dy\Bigg],
+	 \end{align}
+	 where we let $x = m_ec^2/k_BT$ and the integration variable $y = pc/k_BT$.
+	 Thus the total energy density 
+	 \begin{align}
+	 	\rho c^2(T) = & = \frac{\pi^2}{15}\frac{(k_BT)^4}{(\hbar c)^3}\mathcal{E}(x),
+	 \end{align}
+	 where 
+	 \begin{align}
+	 	\mathcal{E} &= 1 + \frac{21}{8}\left(\frac{4}{11}\right)^{4/3}\mathcal{S}^{4/3}(x) + \frac{30}{\pi^4}\int_{0}^{\infty}\frac{y^2\sqrt{y^2 + x^2}}{\exp(\sqrt{y^2 + x^2}) + 1}dy 
+	 \end{align}
+	 \section*{Exercise 6.}
+	 We now consider the previously found relation for cosmic time
+	 \begin{align}
+	 	t = \int_{T}^{T_0}\frac{s'(T)dT}{s(T)\sqrt{24 G\rho(T)}} =c\int_{T}^{T_0}\frac{s'(T)dT}{s(T)\sqrt{24 G\rho c^2(T)}}.
+	 \end{align}
+	 Inserting for the expressions for the entropy density $s(T)$ and the total energy density $\rho c^2(T)$ we get:
+	 \begin{align}
+	 	t & = c\int_{T}^{T_0}\frac{\dv{T}\left[\frac{4\pi^2}{45}k_B\left(\frac{k_BT}{\hbar c}\right)^3 \mathcal{S}(x)\right]dT}{\frac{4\pi^2}{45}k_B\left(\frac{k_BT}{\hbar c}\right)^3 \mathcal{S}(x)\sqrt{24\pi G \frac{\pi^2}{15}\frac{(k_BT)^4}{(\hbar c)^3}}\mathcal{E}(x)}\\
+	 	& = c \int_{T}^{T_0}\frac{\left[3T^2 \mathcal{S}(x) + T^3\dv{\mathcal{S}(x)}{x}\dv{x}{T}\right]dT}{T^3\mathcal{S}(x)\sqrt{24\pi G \frac{\pi^2}{15}\frac{(k_BT)^4}{(\hbar c)^3}\mathcal{E}(x)}}\\
+	 	& = \sqrt{\frac{15\hbar^3c^5}{24\pi^3 G}}\int_{T}^{T_0}\left[\frac{3}{T} + \frac{1}{\mathcal{S}(x)}\dv{\mathcal{S}(x)}{x}\dv{x}{T}\right]\frac{\mathcal{E}^{-1/2}(x)}{(k_BT)^2}dT.
+	 \end{align}
+	 Substituting in $x = m_ec^2/k_BT$ as integration variable we get that $\dv{x}{T} = -\frac{m_e c^2}{k_BT^2}$ so that
+	 \begin{align}
+	 	t & = \sqrt{\frac{15\hbar^3c^5}{24\pi^3 G}}\int_{x(T)}^{x(T_0)}-\left[3 - \frac{\dv{\mathcal{S}(x)}{x}}{\mathcal{S}(x)}x\right]x\frac{\mathcal{E}^{-1/2}dx}{m_e^2c^4}\\
+	 	& = \sqrt{\frac{15\hbar^3}{24\pi^3 Gm_e^4 c^3}}\int_{x(T_0)}^{x(T)}\left[3 - \frac{\dv{\mathcal{S}(x)}{x}}{\mathcal{S}(x)}x\right]x\mathcal{E}^{-1/2}dx.
+	 \end{align}
+	 Next we let $\mathcal{S}'(x)\equiv\dv{\mathcal{S}(x)}{x}$ and insert the limits, $x(T_0) = m_ec^2/k_BT_0$ and $x(T) = m_ec^2/k_BT$, to obtain the final expression for cosmic time $t(T)$ as a function of the photon temperature:
+	 \begin{align}
+	 	t = \sqrt{\frac{15\hbar^3}{24\pi^3 Gm_e^4 c^3}}\int_{m_ec^2/k_BT_0}^{m_ec^2/k_BT}\left[3 - \frac{x\mathcal{S}'(x)}{\mathcal{S}(x)}\right]\mathcal{E}^{-1/2}(x)xdx.
+	 \end{align}
+	 
+	 
+	 \section*{Exercise 7.}
+	 In order to evaluate the function $\mathcal{S}(x)$, we write a Python script (see attached Python script \texttt{Project2.py}). Because $\mathcal{S}(x)$ contains an improper integral, we use the \texttt{scipy.integrate.quad()} function, since it can take finite and infinite limits. However, in order to avoid numerical errors we found it would be more convenient to approximate infinity with a large number. In our case we found that an upper limit of about 100 gave a satisfactory result. In order to make the code more organized and debugging easier we chose to let the integrand of the integral in $\mathcal{S}$ be given by a function. 
+	 
+	 Before presenting the resulting plot of $\mathcal{S}(x)$ as a function of $x$, we take a look at the expected limits of $\mathcal{S}$ when $x=0$ and $x\gg1$. 
+	 
+	 \begin{deluxetable}{lccc}[t]
+	 	%\tablewidth{0pt}
+	 	\tablecaption{\label{tab:temps}}
+	 	\centering
+	 	\tablecomments{Table of photon and neutrino temperatures at corresponding times after the Big Bang (in their respective column from left to right).}
+	 	\tablecolumns{3}
+	 	\tablehead{$T$[K] & $T_\nu/T$ & t [s]}
+	 	\startdata
+	 	$1\cdot10^{11}$ & 1.000 & 0 \\
+	 	$6\cdot 10^{10}$ & 0.9998 & 0.01768 \\
+	 	$2\cdot 10^{10}$ & 0.998 & 0.239 \\
+	 	$1\cdot 10^{10}$ & 0.9921 & 0.9902 \\
+	 	$6\cdot10^9$ & 0.9786 & 2.799 \\
+	 	$3\cdot10^9$ & 0.9255 & 11.78 \\
+	 	$2\cdot10^9$ & 0.863 & 28.44 \\
+	 	$1\cdot10^9$ & 0.7433 & 141 \\
+	 	$3\cdot10^8$ & 0.7138 & 1930 \\
+	 	$1\cdot10^8$ & 0.7138 & $1.773\cdot10^4$ \\
+	 	$1\cdot10^7$ & 0.7138 & $1.777\cdot10^6$ \\
+	 	$1\cdot 10^6$ & 0.7138 & $1.777\cdot 10^8$ 
+	 	\enddata
+	 \end{deluxetable}
+ 
+	 In the limit $x\to0$ we know that the temperature $T\to\infty$ because $x\propto1/T$, meaning that when $x$ approaches zero we go further back in time towards the Big Bang. In these early times the temperature was so high that electrons, positrons and photons were in equilibrium. This means that the reaction $e^+ + e^- \leftrightharpoons \gamma + \gamma$ could go both ways, and that both sides of the reaction had roughly equal weights. Because the function $2\mathcal{S}(x)$ measures the effective relativistic degrees of freedom $g_{*s}$ of the universe at a given temperature (as discovered in Exercise 2.), photons, electrons and positrons will contribute to the effective degrees of freedom $g_{*s}$. Therefore at equilibrium, $\mathcal{S}(0) = 1/2g_{*s} = 1/2(g_\gamma + 7/8 g_e) = 1/2(2 + 7/8\cdot 2\cdot2) = 11/4$, since photons contribute with $g_\gamma$ as they are bosons while fermions like electrons and positrons contribute with $7/8g_e$ to the effective relativistic degrees of freedom. 
+	 
+	 Now we can also see the same pattern in the expression for $\mathcal{S}$. Since $\mathcal{S}$ consists of two parts, one from the photon contribution and one from the electron/positron contribution to the entropy density $s(T)$, it measures the contribution of each part of the reaction equation to the entropy density. Thus, at equilibrium the value of $\mathcal{S}(x)$ will reach its maximum value $\mathcal{S}(0) = 11/4$ (which we found in Exercise 4.), since both photons and fermions contribute to the entropy density. 
+	 
+	 However, when letting the universe expand and thus cool off, the temperature eventually drops so that $x\gg1$. Then the electrons and positrons drop out of equilibrium and become non-relativistic, $m_ec^2\gg k_BT$, so that the reaction between electrons and positrons can only take the form of an annihilation ($e^+ + e^- \to \gamma + \gamma$). The contribution to the entropy of the electrons and positrons will therefore gradually drop as more and more electrons and positrons drop out of equilibrium, while more and more photons are produced. This corresponds to the effective relativistic degrees of freedom $g_{*s}\to g_\gamma = 2$, since the electrons and positrons drop out of equilibrium and annihilate. Thus, when $x\gg1$ we get that $\mathcal{S}(x) = 1/2 g_{*s} \to 1/2g_\gamma = 1$.
+	 
+	 Also when looking at the expression of $\mathcal{S}(x)$ we see that $\mathcal{S}(x)\to1$, as the integral term becomes less and less important, until it eventually is negligible. 
+	 
+	 We can compare these theoretical predictions to the programs output. In Fig. \ref{fig:plot} one can see the function $\mathcal{S}(x)$ as a function of $x\in[0,20]$. As predicted we see that when $x$ approaches zero, $\mathcal{S}(x)$ approaches its maximum value being $11/4 = 2.75$. After letting the temperature drop, and thus letting $x$ grow, we see that the graph of $\mathcal{S}$ drops (almost like a Gaussian) until it eventually approaches its lowest possible value $\mathcal{S}(x\gg1) = 1$. Thus we may conclude that the programs output is in accordance with the theoretical outcome. 
+	 
+	 \begin{figure*}
+	 	\includegraphics[width=\linewidth]{plotoppg7.jpg}
+	 	\caption{The figure show $\mathcal{S}(x)$ as a function of $x=m_ec^2/k_BT$. It starts of at $\mathcal{S}(0) = 11/4 = 2.75$ and gradually drops of until $\mathcal{S}\to1$.}
+	 	\label{fig:plot}
+	 \end{figure*}
+	 
+ 	\section*{Exercise 8.}
+	We now let $T_0 = 10^{11}$. In order to find the cosmic time $t(T)$ corresponding to the photon and neutrino temperatures $T$ and $T_\nu$, we write a Python script (see attached Python script \texttt{Project2.py}) that calculate the expressions found in Exercises 4. and 6. 
+	When evaluating the integral used to calculate the time $t(T)$ we use the integration method \texttt{numpy.trapz()}, using the trapezoidal rule, since it is quite accurate in most cases and easy to use when having definite integrals. However, the integrand of the time integral contains other integrals. We chose to make integrand functions for the integrals in the script, so as to keep the code organized and make debugging easier. All improper integrals were solved using \texttt{scipy.integrate.quad()} as discussed earlier. Also the time integral contains the derivative of $\mathcal{S}$ with respect to $x$. In order to find the derivative we use the \texttt{numpy.gradient()} to differentiate, as it is the most straight forward method. We could have found the derivative analytically and then implemented it in Python or used a finer grid than given by the provided temperature values, but we found that the \texttt{numpy.gradient()}-function gave about the same result as when trying a finer grid of temperatures. The function we previously called $\mathcal{E}(x)$ we also implemented as a function, using \texttt{scipy.integrate.quad()} to calculate the improper integral it contains. And also this time we let the integrand of $\mathcal{E}(x)$ be calculated by a separate function
+	
+	The calculated output corresponding to the values of $T$, $T_\nu/T$ and $t$ can be seen in Table \ref{tab:temps}.
+	The leftmost column shows the photon temperature of the universe, where the values are decreasing from the top downwards. In the middle column the ratio between the neutrino and photon temperature is shown. We see that it starts at $T_\nu/T = 1$ and then decreases as $T$ decreases. Furthermore we see that when the temperature becomes low enough ($T\to0\implies x\gg1\implies\mathcal{S}(x)\to1$) the ratio $T_\nu/T = 0.7138 \approx\left(\frac{4}{11}\right)^{1/3}$, just like predicted by the result found in Exercise 4. In the very early universe neutrinos, photons, electrons and positrons were in equilibrium, thus having the same temperature. However, at later times the universe had expanded so that the electrons and positrons dropped out of equilibrium when the temperature becomes low enough, thus annihilating to produce more photons. Making the effective relativistic degrees of freedom of the electrons and positrons gradually decrees, until they contribute no more. According to our model this happened at a photon temperature of about $T \approx 0.3$ GK, at a time $t\approx1930$s after the Big Bang. Because the neutrinos had at that time already long been decoupled they were not affected by the temperature change of the photons, thus making the photon and neutrino temperature differ at later times and equal at early times. 
+	
+	Previously in the course we only discussed models where all electrons and positrons fell out of equilibrium at the same time, this model however, is quite a lot more realistic. Since the energies of the electrons and positrons follow a non-constant distribution, some particles will fall out of equilibrium before others. Thus resulting in a more continuous change from equilibrium rather than an instantaneous annihilation. The model seen in this project should therefore be quite a lot more realistic than the simplified model previously discussed, although they both illustrate the point quite well. 
+	
+	%\date{Received - / Accepted -}
+	
+	%\begin{figure}[t]
+	%
+	%\mbox{\epsfig{figure=filename.eps,width=\linewidth,clip=}}
+	%
+	%\caption{Description of figure -- explain all elements, but do not
+	%draw conclusions here.}
+	%\label{fig:figure_label}
+	%\end{figure}
+	
+	%\begin{acknowledgements}
+	%\end{acknowledgements}
+
+	%\bibliography{ref}
+	%\bibliographystyle{aasjournal}
+\end{document}
